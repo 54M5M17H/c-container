@@ -101,11 +101,3 @@ int childProc(void *args) {
 	}
 	return 0;
 }
-
-/** 
- * 
- * References:
- * 
- * Linux namespaces:
- * http://man7.org/linux/man-pages/man7/namespaces.7.html
-*/

@@ -1,6 +1,14 @@
-## About
+## C-Container
 
 Simple containerisation experiment using Linux features.
+
+![Sea Container](sea-container.jpg)
+
+## How it works
+
+Using linux namespaces we can create the illusion that a process is isolated & alone on its host. Here we launch a thread with the `clone(2)` call, passing in namespace flags. This runs the thread within new namespaces, masking all processes in the parent namespace.
+
+By changing the root of the process to a mockup Ubuntu filesystem, and mounting the `/proc` directory, we can hide all other processes on the host.
 
 ## Use
 
@@ -21,6 +29,12 @@ Simple containerisation experiment using Linux features.
 us to change & test system settings without worrying about doing damage.
 
 - change_dir: a utility for making sure we execute in the correct container
+
+## Reference
+
+- clone(2): http://man7.org/linux/man-pages/man2/clone.2.html
+- namespaces(7): http://man7.org/linux/man-pages/man7/namespaces.7.html
+- cgroups(7): http://man7.org/linux/man-pages/man7/cgroups.7.html
 
 ## TODO
 
